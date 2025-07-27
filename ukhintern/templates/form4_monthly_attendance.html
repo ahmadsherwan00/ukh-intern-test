@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+    <meta charset="UTF-8">
+    <title>Form 4 – Monthly Attendance Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d63ad;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #000;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            color: #000;
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background-color: #2563eb;
+            color: #ffffff;
+            text-align: center;
+        }
+        tr:nth-child(even) td {
+            background-color: #f1f5f9;
+        }
+        tr:nth-child(odd) td {
+            background-color: #ffffff;
+        }
+        .section {
+            background-color: #3b82f6;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+        .flex-grid > div {
+            flex: 1 1 45%;
+        }
+        button, .btn-secondary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        button:hover, .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+    </style>
+</head>
+<body>
+
+    <h2> Form 4 – Monthly Attendance Sheet</h2>
+
+    <form method="POST" action="/form4">
+
+        <!-- Section A -->
+        <div class="section">
+            <h3>Student & Site Information</h3>
+            <div class="flex-grid">
+                <div><label>Full Name:</label><input type="text" name="full_name" required></div>
+                <div><label>Student ID:</label><input type="text" name="student_id" required></div>
+                <div><label>Program:</label><input type="text" name="program" required></div>
+                <div><label>Internship Site:</label><input type="text" name="site" required></div>
+                <div><label>Work Supervisor:</label><input type="text" name="supervisor" required></div>
+                <div><label>Month (e.g., June):</label><input type="text" name="month" required></div>
+                <div><label>Year (e.g., 2025):</label><input type="text" name="year" required></div>
+            </div>
+        </div>
+
+        <!-- Attendance Table -->
+        <div class="section">
+            <h3>Attendance Record (20 Days)</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Day</th>
+                            <th>Date</th>
+                            <th>Time In</th>
+                            <th>Time Out</th>
+                            <th>Total Hours</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(20) %}
+                        <tr>
+                            <td style="text-align: center;">{{ i + 1 }}</td>
+                            <td><input type="text" name="day_{{ i }}"></td>
+                            <td><input type="text" name="date_{{ i }}"></td>
+                            <td><input type="text" name="time_in_{{ i }}"></td>
+                            <td><input type="text" name="time_out_{{ i }}"></td>
+                            <td><input type="text" name="total_hours_{{ i }}"></td>
+                            <td><input type="text" name="remarks_{{ i }}"></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h3>Monthly Summary</h3>
+            <div class="flex-grid">
+                <div><label>Total Hours for the Month:</label><input type="text" name="total_hours_month" required></div>
+                <div><label>Remaining Internship Hours:</label><input type="text" name="remaining_hours" required></div>
+                <div style="flex: 1 1 100%;"><label>Performance Notes:</label><textarea name="performance_notes" required></textarea></div>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="section">
+            <h3>Signatures</h3>
+            <div class="flex-grid">
+                <div><label>Student Signature:</label><input type="text" name="student_signature"></div>
+                <div><label>Date:</label><input type="text" name="student_date"></div>
+                <div><label>Supervisor Signature:</label><input type="text" name="supervisor_signature"></div>
+                <div><label>Date:</label><input type="text" name="supervisor_date"></div>
+            </div>
+        </div>
+
+        <button type="submit">Submit</button>
+        <a href="/forms" class="btn-secondary">Back to Main Forms</a>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+    <meta charset="UTF-8">
+    <title>Comprehensive Intern Performance Evaluation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h2, h3, h4 {
+            color: #1d4ed8;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        td, th {
+            border: 1px solid #1d4ed8;
+            padding: 8px;
+        }
+        input[type="text"], input[type="email"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <h2>Comprehensive Intern Performance Evaluation</h2>
+
+    <form method="POST">
+        <div class="section">
+            <h3>Part A: General Information</h3>
+            <h4>Student Information</h4>
+            <label>Name: <input type="text" name="student_name"></label><br>
+            <label>Student ID: <input type="text" name="student_id"></label><br>
+            <label>Department/Programme: <input type="text" name="department_program"></label><br>
+            <label>Internship Duration:
+                From <input type="date" name="duration_from"> To <input type="date" name="duration_to">
+            </label>
+
+            <h4>Organisation Information</h4>
+            <label>Company/Organization: <input type="text" name="company"></label><br>
+            <label>Department/Division: <input type="text" name="division"></label><br>
+            <label>Site Supervisor Name: <input type="text" name="supervisor_name"></label><br>
+            <label>Title: <input type="text" name="supervisor_title"></label><br>
+            <label>Contact Information: <input type="text" name="contact"></label><br>
+            <label>Email: <input type="email" name="email"></label><br>
+            <label>Evaluation Date: <input type="date" name="eval_date"></label>
+        </div>
+
+        <div class="section">
+            <h3>Part B: Performance Evaluation</h3>
+            <p><strong>Rating Scale:</strong> 5 = Outstanding, ..., N/A = Not Applicable</p>
+
+            <!-- Technical -->
+            <h4>1. Work Quality and Technical Competency</h4>
+            <table>
+                <tr><th>Criteria</th><th>Rating</th><th>Comments</th></tr>
+                <tr>
+                    <td>Quality of work</td>
+                    <td><input type="text" name="tech_1"></td>
+                    <td><input type="text" name="com_tech_1"></td>
+                </tr>
+                <tr>
+                    <td>Competency and learning</td>
+                    <td><input type="text" name="tech_2"></td>
+                    <td><input type="text" name="com_tech_2"></td>
+                </tr>
+                <tr>
+                    <td>Academic application</td>
+                    <td><input type="text" name="tech_3"></td>
+                    <td><input type="text" name="com_tech_3"></td>
+                </tr>
+            </table>
+
+            <!-- Professional -->
+            <h4>2. Professional Behaviour and Work Habits</h4>
+            <table>
+                <tr><td>Punctuality</td><td><input type="text" name="prof_1"></td><td><input type="text" name="com_prof_1"></td></tr>
+                <tr><td>Initiative</td><td><input type="text" name="prof_2"></td><td><input type="text" name="com_prof_2"></td></tr>
+                <tr><td>Appearance</td><td><input type="text" name="prof_3"></td><td><input type="text" name="com_prof_3"></td></tr>
+            </table>
+
+            <!-- Communication -->
+            <h4>3. Communication & Interpersonal Skills</h4>
+            <table>
+                <tr><td>Verbal/Written</td><td><input type="text" name="comm_1"></td><td><input type="text" name="com_comm_1"></td></tr>
+                <tr><td>Listening</td><td><input type="text" name="comm_2"></td><td><input type="text" name="com_comm_2"></td></tr>
+                <tr><td>Teamwork</td><td><input type="text" name="comm_3"></td><td><input type="text" name="com_comm_3"></td></tr>
+            </table>
+
+            <!-- Adaptability -->
+            <h4>4. Learning and Adaptability</h4>
+            <table>
+                <tr><td>Feedback receptiveness</td><td><input type="text" name="adap_1"></td><td><input type="text" name="com_adap_1"></td></tr>
+                <tr><td>Problem solving</td><td><input type="text" name="adap_2"></td><td><input type="text" name="com_adap_2"></td></tr>
+                <tr><td>Continuous improvement</td><td><input type="text" name="adap_3"></td><td><input type="text" name="com_adap_3"></td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Part C: Achievements and Contributions</h3>
+            <label>Major Projects Completed:<br><textarea name="major_projects"></textarea></label><br>
+            <label>Value Added to the Department:<br><textarea name="value_added"></textarea></label>
+        </div>
+
+        <div class="section">
+            <h3>Part D: Areas for Development</h3>
+            <label>Primary Development Areas:<br><textarea name="development_areas"></textarea></label><br>
+            <label>Development Recommendations:<br><textarea name="dev_recommendations"></textarea></label>
+        </div>
+
+        <div class="section">
+            <h3>Part E: Overall Assessment</h3>
+            <label>Overall Rating:
+                <select name="overall_rating">
+                    <option>Outstanding (5)</option>
+                    <option>Above Average (4)</option>
+                    <option>Satisfactory (3)</option>
+                    <option>Below Average (2)</option>
+                    <option>Unsatisfactory (1)</option>
+                </select>
+            </label><br><br>
+
+            <label>Employment Recommendation:
+                <select name="employment_rec">
+                    <option>Highly Recommend</option>
+                    <option>Recommend</option>
+                    <option>With Reservations</option>
+                    <option>Do Not Recommend</option>
+                </select>
+            </label><br><br>
+
+            <label>Explanation:<br><textarea name="explanation" rows="3"></textarea></label>
+        </div>
+
+        <div class="section">
+            <h3>Part F: Programme Feedback</h3>
+            <label>Suggestions to Improve the Internship Programme:<br><textarea name="programme_suggestions"></textarea></label><br>
+            <label>Support from University Supervisor:
+                <select name="communication_support">
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Satisfactory</option>
+                    <option>Needs Improvement</option>
+                </select>
+            </label><br>
+            <label>Comments:<br><textarea name="supervisor_comments"></textarea></label><br><br>
+
+            <label>Supervisor Signature: <input type="text" name="supervisor_signature"></label>
+            <label>Date: <input type="date" name="supervisor_date"></label><br>
+            <label>Supervisor Name: <input type="text" name="supervisor_name_2"></label>
+            <label>Supervisor Title: <input type="text" name="supervisor_title_final"></label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

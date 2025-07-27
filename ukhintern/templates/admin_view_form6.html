@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - View Form 6 Submissions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background-color: #f9f9f9; }
+        h2 { color: #1d4ed8; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #e0e7ff; color: #1e3a8a; }
+        tr:nth-child(even) { background-color: #f3f4f6; }
+        .download-btn {
+            padding: 6px 12px;
+            background-color: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .download-btn:hover {
+            background-color: #0f3cc9;
+        }
+    </style>
+</head>
+<body>
+    <h2>Admin Dashboard – Form 6 Submissions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Week</th>
+                <th>Organization</th>
+                <th>Tasks</th>
+                <th>Download PDF</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.student_name }}</td>
+                <td>{{ entry.student_id }}</td>
+                <td>{{ entry.week_number }}</td>
+                <td>{{ entry.organization_name }}</td>
+                <td>{{ entry.tasks_description[:100] }}...</td>
+                <td><a class="download-btn" href="/admin/form6/pdf/{{ entry.id }}">Download</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

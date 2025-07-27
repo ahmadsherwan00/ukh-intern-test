@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+    <title>Form 6: Student Bi-weekly Observation and Learning Log</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d63ad;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #000;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .section {
+            background-color: #3b82f6;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+        .checkbox-group {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 6px;
+        }
+        button, .btn-secondary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        button:hover, .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+    </style>
+</head>
+<body>
+
+    <h2> Form 5: Student Bi-weekly Observation and Learning Log</h2>
+    <p><strong>Weekly Internship Reflection And Development Tracker</strong></p>
+    <p>
+        Instructions: Complete this log weekly to track your learning progress,
+        challenges, and professional development. This document serves as evidence
+        of your engagement and growth throughout the internship period.
+    </p>
+
+    <form method="POST" action="/form6">
+
+        <div class="section">
+            <h3>Part A: Basic Information</h3>
+            <label>Name:</label>
+            <input type="text" name="student_name" required>
+
+            <label>ID:</label>
+            <input type="text" name="student_id" required>
+
+            <label>Internship Site:</label>
+            <input type="text" name="internship_site">
+
+            <label>Site Supervisor:</label>
+            <input type="text" name="site_supervisor">
+
+            <label>University Supervisor:</label>
+            <input type="text" name="university_supervisor">
+
+            <label>Week Number:</label>
+            <input type="text" name="week_number">
+
+            <label>Date Range:</label>
+            <input type="text" name="date_range" placeholder="e.g. July 1 – July 15">
+        </div>
+
+        <div class="section">
+            <h3>Part B: Weekly Activities And Learning</h3>
+
+            <label>Primary Tasks/Projects Worked On:</label>
+            <textarea name="primary_tasks"></textarea>
+
+            <label>Your Role and Responsibilities:</label>
+            <textarea name="role_responsibilities"></textarea>
+
+            <label>Resources and Tools Used:</label>
+            <textarea name="resources_used"></textarea>
+
+            <label>Technical and Professional Skills Applied/Learned:</label>
+            <textarea name="skills_learned"></textarea>
+
+            <label>Connection to Academic Coursework:</label>
+            <textarea name="academic_connection"></textarea>
+
+            <label>Biggest Challenge Encountered:</label>
+            <textarea name="challenge_encountered"></textarea>
+
+            <label>How You Addressed It:</label>
+            <textarea name="challenge_solution"></textarea>
+
+            <label>What You Learned:</label>
+            <textarea name="challenge_lesson"></textarea>
+        </div>
+
+        <div class="section">
+            <h3>Part C: Professional Development</h3>
+
+            <label>Professional Interactions and Networking Opportunities Observed:</label>
+            <textarea name="networking_observed"></textarea>
+
+            <label>Workplace Culture Observations:</label>
+            <textarea name="culture_observations"></textarea>
+
+            <label>Supervisor Meeting Date:</label>
+            <input type="date" name="meeting_date">
+
+            <label>Meeting Duration:</label>
+            <input type="text" name="meeting_duration" placeholder="e.g. 30 mins">
+
+            <label>Topics Discussed:</label>
+            <textarea name="meeting_topics"></textarea>
+
+            <label>Feedback, Guidance and Mentoring Received:</label>
+            <textarea name="meeting_feedback"></textarea>
+        </div>
+
+        <div class="section">
+            <h3>Part D: Reflection And Planning</h3>
+
+            <label>Most Significant Learning Experience:</label>
+            <textarea name="significant_learning"></textarea>
+
+            <label>Quality of Work Produced (Self-Assessment):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="self_assess_excellent"> Excellent</label>
+                <label><input type="checkbox" name="self_assess_good"> Good</label>
+                <label><input type="checkbox" name="self_assess_satisfactory"> Satisfactory</label>
+                <label><input type="checkbox" name="self_assess_needs_improvement"> Needs Improvement</label>
+            </div>
+
+            <label>Areas for Personal Improvement:</label>
+            <textarea name="personal_improvement"></textarea>
+
+            <label>Industry Knowledge Gained:</label>
+            <textarea name="industry_knowledge"></textarea>
+
+            <label>Career Path Clarifications:</label>
+            <textarea name="career_path"></textarea>
+
+            <label>Goals for Next Couple of Weeks:</label>
+            <textarea name="next_goals"></textarea>
+        </div>
+
+        <div class="section">
+            <h3>Part E: Signatures And Validation</h3>
+
+            <label>Student Signature:</label>
+            <input type="text" name="student_signature">
+
+            <label>Date:</label>
+            <input type="date" name="student_signature_date">
+
+            <label>University Supervisor Review:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="review_discussed"> Reviewed and Discussed</label>
+                <label><input type="checkbox" name="review_followup"> Requires Follow-up</label>
+                <label><input type="checkbox" name="review_progress"> Satisfactory Progress</label>
+            </div>
+
+            <label>University Supervisor Signature:</label>
+            <input type="text" name="supervisor_signature">
+
+            <label>Date:</label>
+            <input type="date" name="supervisor_signature_date">
+
+            <label>Comments:</label>
+            <textarea name="supervisor_comments"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+        <a href="/forms" class="btn-secondary">Back to Main Forms</a>
+    </form>
+
+</body>
+</html>

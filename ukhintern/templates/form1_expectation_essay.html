@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form 1 – Expectation Essay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d63ad;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f3f4f6;
+            color: #000;
+        }
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .section {
+            background-color: #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        button, .btn-secondary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover, .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+        ul {
+            margin: 10px 0 15px 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+<body>
+
+    <h2> Form 1 – Expectation Essay</h2>
+
+    <form method="POST" action="/form1">
+
+        <div class="section">
+            <label>Full Name:</label>
+            <input type="text" name="student_name" required>
+
+            <label>School Programme:</label>
+            <input type="text" name="school_programme" required>
+
+            <label>Student ID:</label>
+            <input type="text" name="student_id" required>
+
+            <label>Expectation Essay:</label>
+
+            <p>Write a comprehensive essay (500–750 words) discussing your expectations for your internship experience. Focus on the following points:</p>
+            <ul>
+                <li><strong>Learning objectives:</strong> What specific skills or knowledge do you hope to gain?</li>
+                <li><strong>Professional development:</strong> How will this internship contribute to your career goals? How do you plan to add value to your internship site?</li>
+                <li><strong>Work environment:</strong> What are your expectations regarding the workplace culture and dynamics?</li>
+                <li><strong>Challenges:</strong> Anticipate any potential challenges you may face and how you plan to address them.</li>
+            </ul>
+
+            <textarea name="essay" required></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+        <a href="/forms" class="btn-secondary">Back to Main Forms</a>
+    </form>
+
+</body>
+</html>

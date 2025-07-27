@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form 2 - Conflict of Interest Declaration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: auto;
+        }
+        h2, h3 {
+            color: #1d4ed8;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .paragraph {
+            background: #f0f0f0;
+            padding: 10px;
+            white-space: pre-wrap;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form 2 - Conflict of Interest Declaration</h2>
+
+        <div class="section">
+            <h3>Section A: Student & Internship Info</h3>
+            <p><span class="label">Full Name:</span> {{ entry.full_name }}</p>
+            <p><span class="label">Student ID:</span> {{ entry.student_id }}</p>
+            <p><span class="label">Email:</span> {{ entry.email }}</p>
+            <p><span class="label">Phone:</span> {{ entry.phone }}</p>
+            <p><span class="label">Organization:</span> {{ entry.organization_name }}</p>
+            <p><span class="label">Internship Position:</span> {{ entry.internship_position }}</p>
+            <p><span class="label">Internship Supervisor:</span> {{ entry.internship_supervisor }}</p>
+            <p><span class="label">Start Date:</span> {{ entry.start_date }}</p>
+            <p><span class="label">End Date:</span> {{ entry.end_date }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Section B: Conflict Disclosure</h3>
+            <p><span class="label">Q1:</span> {{ entry.q1 }}</p>
+            <p><span class="label">Q2:</span> {{ entry.q2 }}</p>
+            <p><span class="label">Q3:</span> {{ entry.q3 }}</p>
+            <p><span class="label">Q4:</span> {{ entry.q4 }}</p>
+            <p><span class="label">Q5:</span> {{ entry.q5 }}</p>
+            <p><span class="label">Q6:</span> {{ entry.q6 }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Section D: Management Plan</h3>
+            <p><span class="label">Description:</span></p>
+            <div class="paragraph">{{ entry.management_description }}</div>
+            <p><span class="label">Action 1:</span> {{ entry.action1 }}</p>
+            <p><span class="label">Action 2:</span> {{ entry.action2 }}</p>
+            <p><span class="label">Action 3:</span> {{ entry.action3 }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Section E: Disclosure Commitment</h3>
+            <p>{{ "✓" if entry.agree_disclose else "✗" }} Agree to disclose potential conflict</p>
+            <p>{{ "✓" if entry.agree_confidential else "✗" }} Agree to maintain confidentiality</p>
+            <p>{{ "✓" if entry.agree_advantage else "✗" }} Avoid personal advantage</p>
+            <p>{{ "✓" if entry.agree_recuse else "✗" }} Recuse from decision-making</p>
+            <p>{{ "✓" if entry.agree_policies else "✗" }} Acknowledge institutional policies</p>
+            <p>{{ "✓" if entry.agree_consequences else "✗" }} Accept consequences of violation</p>
+        </div>
+
+        <div class="section">
+            <h3>Section F: Declaration</h3>
+            <p><span class="label">Student Signature:</span> {{ entry.student_signature }}</p>
+            <p><span class="label">Date:</span> {{ entry.signature_date }}</p>
+        </div>
+    </div>
+</body>
+</html>

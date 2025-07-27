@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin View – Form 5 Comprehensive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h2 {
+            color: #1d4ed8;
+        }
+        .entry {
+            border: 1px solid #1d4ed8;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #1d4ed8;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🟧 Admin – Form 5 Comprehensive Evaluation</h2>
+
+    {% for entry in entries %}
+    <div class="entry">
+        <div class="section">
+            <h3>Student Info</h3>
+            <p><strong>Name:</strong> {{ entry.student_name }}</p>
+            <p><strong>ID:</strong> {{ entry.student_id }}</p>
+            <p><strong>Department:</strong> {{ entry.department_program }}</p>
+            <p><strong>Internship Duration:</strong> {{ entry.duration_from }} to {{ entry.duration_to }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Organization Info</h3>
+            <p><strong>Company:</strong> {{ entry.company }}</p>
+            <p><strong>Division:</strong> {{ entry.division }}</p>
+            <p><strong>Supervisor:</strong> {{ entry.supervisor_name }}</p>
+            <p><strong>Title:</strong> {{ entry.supervisor_title }}</p>
+            <p><strong>Contact:</strong> {{ entry.contact }}</p>
+            <p><strong>Email:</strong> {{ entry.email }}</p>
+            <p><strong>Date:</strong> {{ entry.eval_date }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Ratings</h3>
+           {% for category, rows in entry.ratings_json.items() %}
+                <h4>{{ category.capitalize() }}</h4>
+                <table>
+                    <tr><th>Criteria</th><th>Rating</th><th>Comment</th></tr>
+                    {% for row in rows %}
+                        <tr>
+                            <td>{{ row.criteria }}</td>
+                            <td>{{ row.rating }}</td>
+                            <td>{{ row.comment }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h3>Achievements</h3>
+            <p><strong>Projects:</strong><br>{{ entry.major_projects }}</p>
+            <p><strong>Value Added:</strong><br>{{ entry.value_added }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Development</h3>
+            <p><strong>Areas:</strong><br>{{ entry.development_areas }}</p>
+            <p><strong>Recommendations:</strong><br>{{ entry.dev_recommendations }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Assessment</h3>
+            <p><strong>Overall Rating:</strong> {{ entry.overall_rating }}</p>
+            <p><strong>Employment Recommendation:</strong> {{ entry.employment_rec }}</p>
+            <p><strong>Explanation:</strong><br>{{ entry.explanation }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Programme Feedback</h3>
+            <p><strong>Suggestions:</strong><br>{{ entry.programme_suggestions }}</p>
+            <p><strong>Supervisor Support:</strong> {{ entry.communication_support }}</p>
+            <p><strong>Supervisor Comments:</strong><br>{{ entry.supervisor_comments }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Signature</h3>
+            <p><strong>Name:</strong> {{ entry.supervisor_name_2 }}</p>
+            <p><strong>Title:</strong> {{ entry.supervisor_title_final }}</p>
+            <p><strong>Date:</strong> {{ entry.supervisor_date }}</p>
+            <p><strong>Signature:</strong> {{ entry.supervisor_signature }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

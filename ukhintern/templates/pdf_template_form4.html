@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Attendance PDF</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 40px;
+            color: #222;
+        }
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+        .section {
+            margin-top: 20px;
+            background-color: #f4f6f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+        th {
+            background-color: #dde7f2;
+        }
+        p {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Monthly Attendance Sheet</h2>
+
+    <div class="section">
+        <p><strong>Full Name:</strong> {{ entry.full_name }}</p>
+        <p><strong>Student ID:</strong> {{ entry.student_id }}</p>
+        <p><strong>Program:</strong> {{ entry.program }}</p>
+        <p><strong>Site:</strong> {{ entry.site }}</p>
+        <p><strong>Supervisor:</strong> {{ entry.supervisor }}</p>
+        <p><strong>Month:</strong> {{ entry.month }}</p>
+        <p><strong>Year:</strong> {{ entry.year }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Daily Attendance</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Date</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Total Hours</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in entry.attendance_data %}
+                <tr>
+                    <td>{{ row.day }}</td>
+                    <td>{{ row.date }}</td>
+                    <td>{{ row.time_in }}</td>
+                    <td>{{ row.time_out }}</td>
+                    <td>{{ row.total_hours }}</td>
+                    <td>{{ row.remarks }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>Monthly Summary</h3>
+        <p><strong>Total Hours This Month:</strong> {{ entry.total_hours_month }}</p>
+        <p><strong>Remaining Hours:</strong> {{ entry.remaining_hours }}</p>
+        <p><strong>Performance Notes:</strong> {{ entry.performance_notes }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Signatures</h3>
+        <p><strong>Student Signature:</strong> {{ entry.student_signature }}</p>
+        <p><strong>Date:</strong> {{ entry.student_date }}</p>
+        <p><strong>Supervisor Signature:</strong> {{ entry.supervisor_signature }}</p>
+        <p><strong>Date:</strong> {{ entry.supervisor_date }}</p>
+    </div>
+
+</body>
+</html>

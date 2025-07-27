@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+ <img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+<head>
+    <meta charset="UTF-8">
+    <title>Form 6 - Final Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d63ad;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+        h2, h3, h4 {
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f3f4f6;
+            color: #000;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        ul {
+            margin: 10px 0 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .section {
+            background-color: #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        button, .btn-secondary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover, .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+        .flex-row {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2> Form 6 – Final Evaluation Form</h2>
+
+    <form method="POST">
+
+        <div class="section">
+            <h3>🔷 Student Information</h3>
+            <label>Student Name:</label>
+            <input type="text" name="student_name">
+            <label>Student ID:</label>
+            <input type="text" name="student_id">
+            <label>Department/Programme:</label>
+            <input type="text" name="department">
+            <label>Semester/Year:</label>
+            <input type="text" name="semester">
+            <label>Internship Site:</label>
+            <input type="text" name="site">
+            <label>Site Supervisor:</label>
+            <input type="text" name="site_supervisor">
+            <label>University Supervisor:</label>
+            <input type="text" name="university_supervisor">
+            <div class="flex-row">
+                <div style="flex: 1;">
+                    <label>Start Date:</label>
+                    <input type="date" name="start_date">
+                </div>
+                <div style="flex: 1;">
+                    <label>End Date:</label>
+                    <input type="date" name="end_date">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h4>📊 Evaluation Scale</h4>
+            <ul>
+                <li>5 = Outstanding</li>
+                <li>4 = Above Average</li>
+                <li>3 = Satisfactory</li>
+                <li>2 = Below Average</li>
+                <li>1 = Unsatisfactory</li>
+                <li>N/A = Not Applicable</li>
+            </ul>
+        </div>
+
+        {% for section, title, items, comment_label in [
+            ('a', 'Overall Experience Evaluation', [('1', 'Overall internship experience quality'), ('2', 'Achievement of pre-internship expectations'), ('3', 'Relevance to academic programme and career goals')], 'Comments on Overall Experience'),
+            ('b', 'Skills And Knowledge Development', [('4', 'Technical skills and industry-specific knowledge'), ('5', 'Communication and teamwork skills improvement'), ('6', 'Application of academic knowledge to practice')], 'Most Significant Skills Developed'),
+            ('c', 'Professional Environment And Culture', [('7', 'Workplace culture integration and communication'), ('8', 'Work-life balance understanding'), ('9', 'Understanding of operations and standards')], 'Comments on Professional Environment'),
+            ('d', 'Supervision And Mentoring', [('10', 'Supervisor guidance for learning'), ('11', 'Supervisor communication'), ('12', 'Development support provided')], 'Comments on Supervision'),
+            ('e', 'Work Assignments And Projects', [('13', 'Meaningfulness and challenge level'), ('14', 'Variety and relevance to career'), ('15', 'Learning value of outcomes')], 'Most Valuable Project'),
+            ('f', 'Career Impact And Future Planning', [('16', 'Clarification of career goals'), ('17', 'Professional network development'), ('18', 'Resume/portfolio enhancement')], 'Comments on Career Impact'),
+            ('g', 'Personal Growth And Development', [('19', 'Professional growth'), ('20', 'Adaptability to stress'), ('21', 'Cultural competency development')], 'Comments on Personal Development'),
+            ('h', 'Challenges And Problem-solving', [('22', 'Handling challenges'), ('23', 'Adaptation to setbacks'), ('24', 'Seeking support')], 'Most Significant Challenge Faced')
+        ] %}
+        <div class="section">
+            <h3>Section {{ section.upper() }}: {{ title }}</h3>
+            {% for i, q in items %}
+            <label>{{ q }}:</label>
+            <input type="text" name="section_{{section}}_{{i}}_rating" placeholder="/5">
+            {% endfor %}
+            <label>{{ comment_label }}:</label>
+            <textarea name="{{ section }}_comments"></textarea>
+        </div>
+        {% endfor %}
+
+        <div class="section">
+            <h3>Section I: Final Recommendations</h3>
+            <label>Would you recommend this internship site?</label><br>
+            {% for i, opt in [('high','Highly Recommend'), ('rec','Recommend'), ('res','Recommend w/ reservations'), ('no','Do not recommend')] %}
+            <label><input type="checkbox" name="recommend_{{i}}"> {{ opt }}</label><br>
+            {% endfor %}
+            <label>Explanation:</label>
+            <textarea name="recommend_explanation"></textarea>
+
+            <label>Would you consider full-time employment?</label><br>
+            {% for i, opt in [('def','Definitely'), ('prob','Probably'), ('poss','Possibly'), ('un','Unlikely'), ('no','No')] %}
+            <label><input type="checkbox" name="employment_{{i}}"> {{ opt }}</label><br>
+            {% endfor %}
+            <label>Explanation:</label>
+            <textarea name="employment_explanation"></textarea>
+
+            <label>Overall Internship Rating:</label><br>
+            {% for i, opt in [('5','Outstanding'), ('4','Above Average'), ('3','Satisfactory'), ('2','Below Average'), ('1','Unsatisfactory')] %}
+            <label><input type="checkbox" name="rating_{{i}}"> {{ opt }}</label><br>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h3>Section J: Additional Comments</h3>
+            <label>Additional Feedback:</label>
+            <textarea name="additional_comments"></textarea>
+            <label>Advice for Future Interns:</label>
+            <textarea name="future_advice"></textarea>
+        </div>
+
+        <div class="section">
+            <h3>Signature</h3>
+            <label>Student Signature:</label>
+            <input type="text" name="student_signature">
+            <label>Date:</label>
+            <input type="date" name="student_date">
+            <label>University Supervisor Review:</label>
+            <input type="text" name="review">
+            <label>Final Grade Assigned:</label>
+            <input type="text" name="final_grade">
+            <label>Date:</label>
+            <input type="date" name="grade_date">
+            <label>University Supervisor Signature:</label>
+            <input type="text" name="supervisor_signature">
+            <label>Date:</label>
+            <input type="date" name="supervisor_date">
+        </div>
+
+        <button type="submit">Submit</button>
+        <a href="/forms" class="btn-secondary">Back to Main Forms</a>
+    </form>
+</body>
+</html>

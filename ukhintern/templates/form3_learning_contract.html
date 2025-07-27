@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <img src="/static/images/ukh-logo1.jpeg" alt="UKH Logo" style="height: 70px; margin-right: 20px;">
+    <meta charset="UTF-8">
+    <title>Form 3 – Internship Learning Contract</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d63ad;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #000;
+            margin-bottom: 16px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        .section {
+            background-color: #3b82f6;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+       .flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px; /* This is the key fix */
+}
+.flex-grid > div {
+    flex: 1 1 45%;
+    min-width: 250px; /* Optional: helps on smaller screens */
+}
+
+        button, .btn-secondary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        button:hover, .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+    </style>
+</head>
+<body>
+
+    <h2> Form 3 – Internship Learning Contract</h2>
+
+    <p>
+        An internship is a unique learning experience that integrates academic studies with practical work.
+        This agreement is prepared by the student in consultation with the internship coordinator,
+        faculty coordinator, and work supervisor. It serves to clarify the educational purpose of the internship
+        and to ensure mutual understanding of the overall learning experience among all principal parties involved.
+    </p>
+
+    <form method="POST" action="/form3">
+
+        <!-- Section I -->
+        <div class="section">
+            <h3>I. Contact Information</h3>
+            <div class="flex-grid">
+                <div><label>Student Name:</label><input type="text" name="student_name" required></div>
+                <div><label>Student ID:</label><input type="text" name="student_id" required></div>
+                <div><label>Class Year:</label><input type="text" name="class_year"></div>
+                <div><label>Home Address:</label><input type="text" name="home_address"></div>
+                <div><label>Student Phone:</label><input type="text" name="student_phone"></div>
+                <div><label>Emergency Contact:</label><input type="text" name="emergency_contact"></div>
+                <div><label>Student Email:</label><input type="text" name="student_email"></div>
+                <div><label>Personality Notes (optional):</label><input type="text" name="personality_note"></div>
+            </div>
+        </div>
+
+        <!-- Section II -->
+        <div class="section">
+            <h3>II. Internship Site Information</h3>
+            <div class="flex-grid">
+                <div><label>Supervisor Name:</label><input type="text" name="supervisor_name"></div>
+                <div><label>Supervisor Title:</label><input type="text" name="supervisor_title"></div>
+                <div><label>Supervisor Phone:</label><input type="text" name="supervisor_phone"></div>
+                <div><label>Supervisor Email:</label><input type="text" name="supervisor_email"></div>
+                <div><label>Organization:</label><input type="text" name="organization"></div>
+                <div><label>Internship Address:</label><input type="text" name="internship_address"></div>
+                <div><label>Internship Title:</label><input type="text" name="internship_title"></div>
+                <div><label>Department:</label><input type="text" name="department"></div>
+                <div><label>Start Date:</label><input type="text" name="begin_date"></div>
+                <div><label>End Date:</label><input type="text" name="end_date"></div>
+                <div><label>Is Paid? (Yes/No):</label><input type="text" name="internship_paid"></div>
+                <div style="flex: 1 1 100%;"><label>Explain Work Relevance to Program:</label><input type="text" name="work_relevance"></div>
+            </div>
+        </div>
+
+        <!-- Section III -->
+        <div class="section">
+            <h3>III. Learning Objectives</h3>
+            <p>Please describe the specific learning objectives you hope to achieve through this internship. These should be clear, measurable goals that relate to your academic, professional, or personal development.</p>
+            <label>Primary Learning Objective:</label>
+            <textarea name="primary_objective"></textarea>
+
+            <label>Secondary Objective:</label>
+            <textarea name="secondary_objective"></textarea>
+
+            <label>Skills to Gain:</label>
+            <textarea name="skills_objective"></textarea>
+        </div>
+
+        <!-- Section IV -->
+        <div class="section">
+            <h3>IV. Agreement Terms</h3>
+            <label><input type="checkbox" name="agree_attendance"> I agree to attendance policy</label><br>
+            <label><input type="checkbox" name="agree_conduct"> I agree to code of conduct</label><br>
+            <label><input type="checkbox" name="agree_confidentiality"> I agree to confidentiality</label><br>
+            <label><input type="checkbox" name="agree_policies"> I will abide by university policies</label><br>
+            <label><input type="checkbox" name="agree_communication"> I will maintain communication</label>
+        </div>
+
+        <!-- Section V -->
+        <div class="section">
+            <h3>V. Signatures</h3>
+            <div class="flex-grid">
+                <div><label>Student Signature:</label><input type="text" name="student_signature"></div>
+                <div><label>Date:</label><input type="text" name="student_date"></div>
+                <div><label>Supervisor Signature:</label><input type="text" name="supervisor_signature"></div>
+                <div><label>Date:</label><input type="text" name="supervisor_date"></div>
+                <div><label>Internship Coordinator Signature:</label><input type="text" name="coordinator_signature"></div>
+                <div><label>Date:</label><input type="text" name="coordinator_date"></div>
+                <div><label>Academic Leader Signature:</label><input type="text" name="leader_signature"></div>
+                <div><label>Date:</label><input type="text" name="leader_date"></div>
+            </div>
+        </div>
+
+        <button type="submit">Submit</button>
+        <a href="/forms" class="btn-secondary">Back to Main Forms</a>
+    </form>
+
+</body>
+</html>

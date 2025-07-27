@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work Supervisor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 40px;
+        }
+        h1 {
+            color: #1d4ed8;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-left: 6px solid #1d4ed8;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        a.button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome, Work Supervisor</h1>
+
+    <div class="card">
+        <h2> Form 5 – Comprehensive Intern Performance Evaluation</h2>
+        <p>You may fill out and submit evaluations for your assigned students using the form below.</p>
+        <a href="{{ url_for('form5_comprehensive') }}" class="button">Open Form 5</a>
+    </div>
+
+</body>
+</html>

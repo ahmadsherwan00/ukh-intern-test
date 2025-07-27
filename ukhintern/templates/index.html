@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UKH Internship Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans text-gray-800">
+<img src="/static/images/ukh-logo.png" alt="UKH Logo" style="height: 80px; margin-right: 40px;">
+    <!-- Header -->
+    <header class="bg-[#1d63ad] text-white py-6 shadow-md">
+
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wide">UKH Internship System</div>
+            <nav class="space-x-6">
+                <a href="/login/user" class="bg-white text-[#1d4ed8] px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Login as Student</a>
+                <a href="/login/admin" class="bg-white text-[#1d4ed8] px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Login as Admin</a>
+                <a href="/login/work_supervisor" class="bg-white text-[#1d4ed8] px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Login as Work Supervisor</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[#1d63ad]">Welcome to the Internship Portal</h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">This platform is designed to manage internship forms, evaluations, and feedback for students at the University of Kurdistan Hewlêr.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="/login/user" class="bg-[#1d4ed8] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition">Get Started</a>
+                <a href="https://www.ukh.edu.krd" target="_blank" class="border border-[#1d63ad] text-[#1d63ad] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#1d4ed8] hover:text-white transition">Visit UKH Website</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1d63ad] text-white text-center py-6 mt-20">
+        <p>&copy; {{ current_year or "2025" }} University of Kurdistan Hewlêr. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

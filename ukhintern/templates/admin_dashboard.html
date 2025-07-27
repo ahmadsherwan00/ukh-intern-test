@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - UKH Internship Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#1d4ed8] text-white py-6 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+            <a href="/logout" class="bg-white text-[#1d4ed8] px-4 py-2 rounded-full font-semibold hover:bg-gray-100">Logout</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <h2 class="text-3xl font-semibold text-[#1d4ed8] mb-8">📚 Students Grouped by School & Program</h2>
+
+        {% if grouped %}
+            {% for school, programs in grouped.items() %}
+                <div class="mb-8 border-l-4 border-[#1d4ed8] bg-white shadow-md p-6 rounded">
+                    <h3 class="text-xl font-bold text-[#1d4ed8] mb-4">🏫 School: {{ school }}</h3>
+
+                    {% for program, students in programs.items() %}
+                        <div class="ml-4 mb-6">
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">📁 Program: {{ program }}</h4>
+                            <ul class="list-disc ml-6 text-sm text-gray-600">
+                                {% for student in students %}
+                                    <li>{{ student }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-gray-500">No student login data available yet.</p>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1d4ed8] text-white text-center py-4 mt-10">
+        <p>&copy; {{ current_year or "2025" }} University of Kurdistan Hewlêr</p>
+    </footer>
+
+</body>
+</html>

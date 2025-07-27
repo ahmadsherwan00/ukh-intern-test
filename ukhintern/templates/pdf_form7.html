@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Final Evaluation PDF</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 40px;
+            color: #1e1e1e;
+        }
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 6px;
+        }
+        h3 {
+            margin-top: 25px;
+            color: #004488;
+        }
+        .section {
+            background-color: #f4f6f9;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Final Evaluation Form</h2>
+
+    <div class="section">
+        <h3>Student Information</h3>
+        <p><strong>Name:</strong> {{ entry.student_name }}</p>
+        <p><strong>ID:</strong> {{ entry.student_id }}</p>
+        <p><strong>Department:</strong> {{ entry.department }}</p>
+        <p><strong>Semester:</strong> {{ entry.semester }}</p>
+        <p><strong>Internship Site:</strong> {{ entry.internship_site }}</p>
+        <p><strong>Site Supervisor:</strong> {{ entry.site_supervisor }}</p>
+        <p><strong>University Supervisor:</strong> {{ entry.university_supervisor }}</p>
+        <p><strong>Duration:</strong> {{ entry.duration_from }} to {{ entry.duration_to }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Evaluations</h3>
+        <p><strong>Overall Ratings:</strong> {{ entry.overall_ratings }}</p>
+        <p><strong>Skills Ratings:</strong> {{ entry.skills_ratings }}</p>
+        <p><strong>Environment Ratings:</strong> {{ entry.env_ratings }}</p>
+        <p><strong>Supervision Ratings:</strong> {{ entry.supervision_ratings }}</p>
+        <p><strong>Work Assignments Ratings:</strong> {{ entry.work_ratings }}</p>
+        <p><strong>Career Ratings:</strong> {{ entry.career_ratings }}</p>
+        <p><strong>Growth Ratings:</strong> {{ entry.growth_ratings }}</p>
+        <p><strong>Challenge Ratings:</strong> {{ entry.challenge_ratings }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Comments</h3>
+        <p>{{ entry.comments }}</p>
+        <p><strong>Recommendation:</strong> {{ entry.recommendation }}</p>
+        <p><strong>Employment Future:</strong> {{ entry.employment_future }}</p>
+        <p><strong>Overall Rating:</strong> {{ entry.overall_rating }}</p>
+        <p><strong>Additional Comments:</strong> {{ entry.additional_comments }}</p>
+        <p><strong>Advice:</strong> {{ entry.advice }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Final Signatures</h3>
+        <p><strong>Student Signature:</strong> {{ entry.student_signature }}</p>
+        <p><strong>Date:</strong> {{ entry.student_date }}</p>
+        <p><strong>Final Grade:</strong> {{ entry.final_grade }}</p>
+        <p><strong>Grade Date:</strong> {{ entry.grade_date }}</p>
+        <p><strong>Supervisor Signature:</strong> {{ entry.supervisor_signature }}</p>
+        <p><strong>Date:</strong> {{ entry.supervisor_date }}</p>
+    </div>
+
+</body>
+</html>

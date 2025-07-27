@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form 3 - Internship Learning Contract</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f9fafc;
+            padding: 40px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2, h3 {
+            color: #1d4ed8;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .label {
+            font-weight: 600;
+        }
+        .long-text {
+            background: #f0f0f0;
+            padding: 10px;
+            white-space: pre-wrap;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form 3 - Internship Learning Contract</h2>
+
+        <div class="section">
+            <h3>Contact & Academic Info</h3>
+            <p><span class="label">Student Name:</span> {{ entry.student_name }}</p>
+            <p><span class="label">ID:</span> {{ entry.student_id }}</p>
+            <p><span class="label">Class Year:</span> {{ entry.class_year }}</p>
+            <p><span class="label">Home Address:</span> {{ entry.home_address }}</p>
+            <p><span class="label">Phone:</span> {{ entry.student_phone }}</p>
+            <p><span class="label">Emergency Contact:</span> {{ entry.emergency_contact }}</p>
+            <p><span class="label">Email:</span> {{ entry.student_email }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Internship Placement</h3>
+            <p><span class="label">Supervisor:</span> {{ entry.supervisor_name }}</p>
+            <p><span class="label">Title:</span> {{ entry.supervisor_title }}</p>
+            <p><span class="label">Phone:</span> {{ entry.supervisor_phone }}</p>
+            <p><span class="label">Email:</span> {{ entry.supervisor_email }}</p>
+            <p><span class="label">Organization:</span> {{ entry.organization }}</p>
+            <p><span class="label">Address:</span> {{ entry.internship_address }}</p>
+            <p><span class="label">Internship Title:</span> {{ entry.internship_title }}</p>
+            <p><span class="label">Department:</span> {{ entry.department }}</p>
+            <p><span class="label">From:</span> {{ entry.begin_date }}</p>
+            <p><span class="label">To:</span> {{ entry.end_date }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Objectives</h3>
+            <div><span class="label">Primary Objective:</span> <div class="long-text">{{ entry.primary_objective }}</div></div>
+            <div><span class="label">Secondary Objective:</span> <div class="long-text">{{ entry.secondary_objective }}</div></div>
+            <div><span class="label">Skills Objective:</span> <div class="long-text">{{ entry.skills_objective }}</div></div>
+        </div>
+
+        <div class="section">
+            <h3>Agreements</h3>
+            <p>{{ "✓" if entry.agree_attendance else "✗" }} Attend full hours</p>
+            <p>{{ "✓" if entry.agree_conduct else "✗" }} Follow conduct rules</p>
+            <p>{{ "✓" if entry.agree_confidentiality else "✗" }} Maintain confidentiality</p>
+            <p>{{ "✓" if entry.agree_policies else "✗" }} Abide by policies</p>
+            <p>{{ "✓" if entry.agree_communication else "✗" }} Communicate with supervisor</p>
+        </div>
+
+        <div class="section">
+            <h3>Signatures</h3>
+            <p><span class="label">Student:</span> {{ entry.student_signature }} | {{ entry.student_date }}</p>
+            <p><span class="label">Supervisor:</span> {{ entry.supervisor_signature }} | {{ entry.supervisor_date }}</p>
+            <p><span class="label">Coordinator:</span> {{ entry.coordinator_signature }} | {{ entry.coordinator_date }}</p>
+            <p><span class="label">Leader:</span> {{ entry.leader_signature }} | {{ entry.leader_date }}</p>
+        </div>
+    </div>
+</body>
+</html>
